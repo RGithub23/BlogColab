@@ -1,0 +1,22 @@
+name: Publish Blog
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "_posts/**"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Confirm new post
+        run: |
+          echo "New blog post detected 🚀"
+          ls _posts
+
